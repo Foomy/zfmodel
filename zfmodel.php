@@ -25,29 +25,6 @@ include_once 'setter.php';
 include_once 'fieldConstant.php';
 
 
-function getFieldConstants($fieldConstant, $tableStruct)
-{
-	$exceptions = array(
-		'id',
-		'created',
-		'modified'
-	);
-
-	$constLines = array();
-
-	foreach ($tableStruct as $fieldname => $fieldDefiniton) {
-		if (! in_array($fieldname, $exceptions)) {
-			$constantName = 'T_' . strtoupper($fieldname);
-
-			$line = str_replace('[constantName]', $constantName, $fieldConstant['line']);
-			$line = str_replace('[constantValue]', $fieldname, $line);
-
-			$constLines[] = $line;
-		}
-	}
-
-	return implode(PHP_EOL, $constLines);
-}
 
 // Connect to the databse;
 $db = null;
@@ -285,6 +262,32 @@ if (file_exists($dbcFile)) {
 else {
 	echo 'Error: File »' . $dbcFile . '« not found.' . PHP_EOL;
 	echo 'Please create it in the model folder of the designated Zend project.';
+}
+
+
+
+function getFieldConstants($fieldConstant, $tableStruct)
+{
+	$exceptions = array(
+		'id',
+		'created',
+		'modified'
+	);
+
+	$constLines = array();
+
+	foreach ($tableStruct as $fieldname => $fieldDefiniton) {
+		if (! in_array($fieldname, $exceptions)) {
+			$constantName = 'T_' . strtoupper($fieldname);
+
+			$line = str_replace('[constantName]', $constantName, $fieldConstant['line']);
+			$line = str_replace('[constantValue]', $fieldname, $line);
+
+			$constLines[] = $line;
+		}
+	}
+
+	return implode(PHP_EOL, $constLines);
 }
 
 function substitutePlaceholders($line)
