@@ -9,10 +9,10 @@ zfmodel is a PHP-CLI tool, which helps you to create a model for a zend project.
 Short Manual
 ============
 
-1.) Create a Zend project with complete folder structer, by using zf-tool or
+1.) Create a Zend project with complete folder structure, by using zf-tool or
 manually.
 
-2.) Create the database for the project. At the moment only MySQL ist supported
+2.) Create the database for the project. At this time only MySQL ist supported
 by zfmodel.
 
 3.) Then create a PHP-File named <project name>.dbc in the model
