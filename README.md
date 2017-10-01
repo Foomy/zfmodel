@@ -1,6 +1,6 @@
 Introduction
 =============
-zfmodel is a PHP-CLI tool, which helps you to create a model for a zend project.
+zfmodel is a PHP-CLI tool, which helps you to create a model for Zend Framwork 1 projects.
 
 	Usage:
 		php zfmodel <name of the Zend project>
@@ -18,12 +18,16 @@ by zfmodel.
 3.) Then create a PHP-File named <project name>.dbc in the model
 folder of the project. This dbc-File must contain an array as followed:
 
-	$dbc = array (
-		'dbname' => <name of your mysql database>,
-		'user' => <your database username>,
-		'pass' => <your database password>,
-		'host' => <name or ip of the database host>,
-	);
+```php
+<?php
+
+$dbc = array (
+    'dbname' => <name of your mysql database>,
+    'user' => <your database username>,
+    'pass' => <your database password>,
+    'host' => <name or ip of the database host>,
+);
+```
 
 Note:
 You may have to change the MODEL_PATH constant in the config.php, if you haven't
